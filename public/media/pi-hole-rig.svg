@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">Pi-hole appliance setup</title>
+  <desc id="desc">An embedded Linux setup with a Raspberry Pi running Pi-hole and a local network filter appliance.</desc>
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #f8fafc; }
+      .label { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #e2e8f0; }
+      .small { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #cbd5e1; }
+      .card { fill: rgba(15, 23, 42, 0.88); stroke: #334155; stroke-width: 2; }
+      .accent { fill: rgba(34, 197, 94, 0.15); stroke: #22c55e; stroke-width: 2; }
+      .accent2 { fill: rgba(96, 165, 250, 0.14); stroke: #60a5fa; stroke-width: 2; }
+      .line { stroke: #38bdf8; stroke-width: 4; fill: none; }
+      .line2 { stroke: #34d399; stroke-width: 4; fill: none; }
+    </style>
+  </defs>
+  <rect width="1200" height="780" fill="#0f172a"/>
+  <text x="600" y="56" text-anchor="middle" class="title">Raspberry Pi Pi-hole Appliance</text>
+
+  <g>
+    <rect x="160" y="160" width="880" height="480" rx="22" class="card"/>
+
+    <rect x="220" y="230" width="260" height="200" rx="18" class="accent"/>
+    <text x="350" y="300" text-anchor="middle" class="label">Raspberry Pi 4</text>
+    <text x="350" y="345" text-anchor="middle" class="small">Linux OS</text>
+    <text x="350" y="375" text-anchor="middle" class="small">Pi-hole service</text>
+    <text x="350" y="405" text-anchor="middle" class="small">Cron + script updates</text>
+
+    <rect x="560" y="230" width="260" height="200" rx="18" class="accent2"/>
+    <text x="690" y="300" text-anchor="middle" class="label">DNS Filters</text>
+    <text x="690" y="345" text-anchor="middle" class="small">Blocklists</text>
+    <text x="690" y="375" text-anchor="middle" class="small">Query logs</text>
+    <text x="690" y="405" text-anchor="middle" class="small">Health checks</text>
+
+    <path d="M480 330 H560" class="line"/>
+    <path d="M820 330 H900" class="line2"/>
+
+    <rect x="900" y="290" width="90" height="80" rx="12" fill="rgba(34, 197, 94, 0.12)" stroke="#22c55e" stroke-width="2"/>
+    <text x="945" y="330" text-anchor="middle" class="small">Internet</text>
+
+    <text x="350" y="560" text-anchor="middle" class="small">LAN devices</text>
+    <text x="690" y="560" text-anchor="middle" class="small">Filtered DNS</text>
+  </g>
+</svg>

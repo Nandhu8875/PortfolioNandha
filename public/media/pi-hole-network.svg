@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">Pi-hole network topology</title>
+  <desc id="desc">A simple network diagram showing a Raspberry Pi running Pi-hole between the LAN and the internet, with DNS filtering for all connected devices.</desc>
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #f8fafc; }
+      .label { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #e2e8f0; }
+      .small { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #cbd5e1; }
+      .box { fill: rgba(30, 41, 59, 0.9); stroke: #475569; stroke-width: 2; }
+      .box2 { fill: rgba(14, 116, 144, 0.18); stroke: #22d3ee; stroke-width: 2; }
+      .line { stroke: #60a5fa; stroke-width: 4; fill: none; }
+      .line2 { stroke: #34d399; stroke-width: 4; fill: none; }
+      .line3 { stroke: #f59e0b; stroke-width: 4; fill: none; }
+    </style>
+  </defs>
+  <rect width="1200" height="780" fill="#0f172a"/>
+  <text x="600" y="56" text-anchor="middle" class="title">Pi-hole DNS Filtering Topology</text>
+
+  <g>
+    <rect x="100" y="250" width="220" height="180" rx="18" class="box"/>
+    <text x="210" y="310" text-anchor="middle" class="label">Home Network</text>
+    <text x="210" y="360" text-anchor="middle" class="small">Phone • Laptop • TV</text>
+    <text x="210" y="390" text-anchor="middle" class="small">Smart devices</text>
+
+    <rect x="490" y="220" width="220" height="240" rx="18" class="box2"/>
+    <text x="600" y="285" text-anchor="middle" class="label">Raspberry Pi</text>
+    <text x="600" y="340" text-anchor="middle" class="small">Pi-hole</text>
+    <text x="600" y="372" text-anchor="middle" class="small">DNS sinkhole</text>
+    <text x="600" y="404" text-anchor="middle" class="small">Blocklists + cron jobs</text>
+
+    <rect x="880" y="250" width="220" height="180" rx="18" class="box"/>
+    <text x="990" y="310" text-anchor="middle" class="label">Internet</text>
+    <text x="990" y="360" text-anchor="middle" class="small">DNS queries</text>
+    <text x="990" y="390" text-anchor="middle" class="small">malicious domains</text>
+
+    <path d="M320 340 H490" class="line"/>
+    <path d="M710 340 H880" class="line2"/>
+    <path d="M210 430 V520 H600 V460" class="line3"/>
+    <path d="M990 430 V520 H600 V460" class="line3"/>
+
+    <text x="375" y="318" class="small">DNS requests</text>
+    <text x="760" y="318" class="small">Filtered response</text>
+    <text x="610" y="490" class="small">Blocks malicious domains before they reach the Internet</text>
+  </g>
+</svg>

@@ -1,0 +1,333 @@
+{
+  "profile": {
+    "name": "Nandha Gopal M",
+    "shortName": "Nandha",
+    "role": "Embedded Firmware Engineer",
+    "tagline": "I write the firmware that makes machines move on time.",
+    "specialization": "ESP32 · STM32 · FreeRTOS · Motion control · Industrial HMI",
+    "location": "Tamil Nadu, India",
+    "availability": "Open to embedded / firmware roles — available to join immediately",
+    "photo": "./media/nandha.jpg",
+    "bio": [
+      "I build firmware for machines that have to behave the same way on the thousandth cycle as on the first: step pulses that stay in time, limit switches that always abort, screens an operator can use without a manual.",
+      "Before engineering college I spent two years at a Xiaomi service centre doing board-level repair — power ICs, charging circuits, recovering bricked phones. That is where I learned to read a schematic, trust a multimeter over a guess, and work from the symptom back to the cause. I now do the same thing across firmware, sensors and HMI on industrial automation equipment."
+    ],
+    "social": {
+      "github": "https://github.com/",
+      "linkedin": "https://linkedin.com/in/",
+      "email": "nandhagopalvm19@gmail.com",
+      "phone": "+91 79048 57511",
+      "resume": "https://drive.google.com/file/d/1cThEcvDBZoTeyyEecoJnq0FQcfar2AG3/view?usp=sharing"
+    },
+    "specStrip": [
+      {
+        "label": "Now",
+        "value": "Fresher, 2026 batch"
+      },
+      {
+        "label": "Bench",
+        "value": "ESP32-S3, STM32, Raspberry Pi"
+      },
+      {
+        "label": "Buses",
+        "value": "UART, SPI, I2C"
+      },
+      {
+        "label": "Base",
+        "value": "Tamil Nadu, India"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "Firmware",
+      "items": [
+        "Embedded C",
+        "C / basic C++",
+        "FreeRTOS tasks & queues",
+        "Interrupt handling",
+        "Hardware timers",
+        "State machines"
+      ]
+    },
+    {
+      "name": "Silicon & boards",
+      "items": [
+        "ESP32",
+        "ESP32-S3",
+        "STM32 (Cortex-M)",
+        "Arduino Mega",
+        "Raspberry Pi"
+      ]
+    },
+    {
+      "name": "Buses & peripherals",
+      "items": [
+        "UART",
+        "SPI",
+        "I2C",
+        "GPIO",
+        "ADC",
+        "PWM",
+        "Timers",
+        "External interrupts"
+      ]
+    },
+    {
+      "name": "Machine side",
+      "items": [
+        "Stepper drive (TB6600, NEMA17)",
+        "Limit switches & homing",
+        "Relay control",
+        "Sensor interfacing",
+        "Board bring-up"
+      ]
+    },
+    {
+      "name": "Interface & tooling",
+      "items": [
+        "LVGL touch UI",
+        "Wi-Fi TCP sockets, mDNS",
+        "SD card + JSON storage",
+        "PlatformIO, VS Code, Git",
+        "Logic analyser, serial debug",
+        "Python, Bash, OpenCV"
+      ]
+    },
+    {
+      "name": "Learning next",
+      "items": [
+        "Bare-metal STM32 register-level drivers",
+        "CAN and Modbus RTU",
+        "Bootloaders and OTA update",
+        "Unit testing firmware logic"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Navson Technologies",
+      "role": "Embedded Firmware Engineer — Intern",
+      "period": "Jun 2026 — Aug 2026",
+      "location": "Chennai, India",
+      "summary": "Worked across hardware, firmware and HMI on deployed gantry-based industrial automation systems, and on firmware for a dip coating machine.",
+      "highlights": [
+        "Traced faults on deployed machines down to the layer that actually caused them — wiring, sensor, firmware, communication or HMI — instead of replacing parts by guess.",
+        "Wrote and debugged ESP32 firmware for an automated dip coating system: process sequencing, motor control, sensor feedback and UART/SPI/I2C peripheral drivers.",
+        "Split concurrent work across FreeRTOS tasks — motion, sensor monitoring, process timing and UI — so a slow screen redraw can never stall a motion step.",
+        "Verified signals on the bench with a logic analyser and serial instrumentation before blaming the code, and re-tested the machine after every corrective change."
+      ]
+    },
+    {
+      "company": "Xiaomi Authorised Service Centre",
+      "role": "Service Technician",
+      "period": "2021 — 2023",
+      "location": "Tamil Nadu, India",
+      "summary": "Board-level diagnosis and repair of Android smartphones, under warranty turnaround pressure.",
+      "highlights": [
+        "Diagnosed motherboard-level failures, mostly around power ICs and charging circuits, using schematics and measurement rather than part swapping.",
+        "Flashed firmware and recovered bricked devices, including data recovery for customers who had no backup."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "dip-coater",
+      "title": "Industrial dip coater controller",
+      "subtitle": "Dual-ESP32 machine controller with a 7-inch touch HMI",
+      "year": "2026",
+      "context": "Internship project · Navson Technologies",
+      "description": "A dip coating machine needs a coating run to be repeatable: the same immersion depth, the same dwell, the same withdrawal speed, every cycle. The controller splits that job across two ESP32s — one running the operator screen, one running motion — so the UI can never delay a step pulse.",
+      "stack": [
+        "ESP32-S3",
+        "FreeRTOS",
+        "LVGL",
+        "Embedded C/C++",
+        "PlatformIO",
+        "UART",
+        "Wi-Fi TCP"
+      ],
+      "highlights": [
+        "Step pulse generation off a hardware timer, so motion timing is independent of what the UI thread is doing",
+        "Recipes stored as JSON on SD card — an operator saves a process once and replays it",
+        "Interrupt-driven limit switches, jog boundaries and an emergency abort path that runs before anything else",
+        "Backend link over UART/USB serial and Wi-Fi sockets, with mDNS discovery so the screen finds the controller on its own"
+      ],
+      "media": [
+        {
+          "src": "./media/dipcoater-hmi-screen.jpg",
+          "caption": "Operator screen: manual jog, step list, cycle state"
+        },
+        {
+          "src": "./media/dipcoater-hmi-board.jpg",
+          "caption": "ESP32-S3 7\" touch panel during firmware bring-up"
+        },
+        {
+          "src": "./media/dipcoater-recipe-screen.jpg",
+          "caption": "Recipe editor — steps saved to SD as JSON"
+        },
+        {
+          "src": "./media/dipcoater-control-board.jpg",
+          "caption": "Controller board: ESP32 with buck supply on perfboard"
+        }
+      ],
+      "link": "",
+      "highlight": true
+    },
+    {
+      "id": "gantry-motion",
+      "title": "Gantry motion control",
+      "subtitle": "XY stage firmware — homing, jog, coordinated moves",
+      "year": "2026",
+      "context": "Internship work · spray coater gantry",
+      "description": "Firmware for a belt-and-leadscrew XY gantry: homing against limit switches, manual jog with soft boundaries, and coordinated moves driven by a step/direction interface into TB6600 drivers.",
+      "stack": [
+        "Arduino Mega",
+        "Embedded C",
+        "TB6600",
+        "NEMA17",
+        "Limit switches",
+        "Serial protocol"
+      ],
+      "highlights": [
+        "Homing routine that establishes a known origin before any commanded move is accepted",
+        "Soft limits in software plus hard limit switches on interrupt — two independent stops",
+        "Serial command interface so the motion layer can be driven and tested from a laptop"
+      ],
+      "media": [
+        {
+          "src": "./media/gantry-xy-stage.jpg",
+          "caption": "XY stage with leadscrew, belt axis and limit switches"
+        },
+        {
+          "src": "./media/gantry-bench-test.jpg",
+          "caption": "Bench test — motion commands driven from serial"
+        },
+        {
+          "src": "./media/stepper-driver-bench.jpg",
+          "caption": "Stepper, driver and controller wired for step timing checks"
+        }
+      ],
+      "link": "",
+      "highlight": true
+    },
+    {
+      "id": "driver-monitoring",
+      "title": "Driver monitoring & alcohol detection",
+      "subtitle": "STM32 sensing with a vision dashboard on the host",
+      "year": "2026",
+      "context": "Final year project",
+      "description": "A safety system that watches the driver and the cabin at the same time: an MQ-3 alcohol sensor read through the ADC on an STM32, drowsiness detection running on a host PC from a webcam, and a dashboard that raises the alert.",
+      "stack": [
+        "STM32",
+        "Embedded C",
+        "ADC",
+        "UART",
+        "Python",
+        "OpenCV",
+        "Tkinter"
+      ],
+      "highlights": [
+        "ADC sampling and threshold logic on the microcontroller, so detection does not depend on the PC staying alive",
+        "Framed UART link between firmware and the Python backend",
+        "Dashboard showing live sensor values, camera feed and alert state together"
+      ],
+      "media": [
+        {
+          "src": "./media/stm32-pin-map.svg",
+          "caption": "STM32 pin map — ADC, UART and alert wiring for the monitoring board"
+        },
+        {
+          "src": "./media/driver-monitor-dashboard.jpg",
+          "caption": "Monitoring dashboard — sensor gauges and alert state"
+        },
+        {
+          "src": "./media/driver-monitor-rig.jpg",
+          "caption": "Test rig: sensor board, motor load and live dashboard"
+        },
+        {
+          "src": "./media/driver-monitor-alert.jpg",
+          "caption": "Alert raised when the alcohol threshold is crossed"
+        }
+      ],
+      "link": "",
+      "highlight": false
+    },
+    {
+      "id": "phishing-blocker",
+      "title": "Network-level phishing blocker",
+      "subtitle": "Raspberry Pi appliance doing DNS filtering",
+      "year": "2025",
+      "context": "Personal project",
+      "description": "A Raspberry Pi sitting between the LAN and the internet, running Pi-hole to drop known malicious domains at DNS level, with blocklists and health checks kept current by cron-driven Bash scripts.",
+      "stack": [
+        "Raspberry Pi",
+        "Linux",
+        "Pi-hole",
+        "Bash",
+        "Python"
+      ],
+      "highlights": [
+        "DNS-level filtering, so every device on the network is covered without installing anything on it",
+        "Scheduled blocklist refresh and service health checks with logging"
+      ],
+      "media": [
+        {
+          "src": "./media/pi-hole-dashboard.svg",
+          "caption": "Pi-hole dashboard — live query count, block rate and client health"
+        },
+        {
+          "src": "./media/pi-hole-network.svg",
+          "caption": "Network diagram — Raspberry Pi acting as the DNS sinkhole"
+        },
+        {
+          "src": "./media/pi-hole-rig.svg",
+          "caption": "Raspberry Pi appliance layout with blocklists and filtering logic"
+        }
+      ],
+      "link": "",
+      "highlight": false
+    }
+  ],
+  "recommendation": {
+    "quote": "Worked through faults layer by layer on live industrial systems, and could tell whether the cause sat in the hardware, the firmware, a sensor, the communication link or the HMI.",
+    "note": "View letter of recommendation",
+    "name": "Rajasekhar V V",
+    "role": "Director, Navson Technologies Private Limited",
+    "date": "August 2026",
+    "url": "https://drive.google.com/file/d/1AkLY7D8inCrxpkbkpiyNrUFhg1voVmjh/view?usp=sharing"
+  },
+  "education": [
+    {
+      "title": "B.E. Electronics and Communication Engineering",
+      "org": "PSR Engineering College, Tamil Nadu",
+      "period": "2023 — 2026",
+      "note": "CGPA 7.5 / 10"
+    },
+    {
+      "title": "Internship Certificate",
+      "org": "Navson Technologies",
+      "period": "2026",
+      "note": "View certificate",
+      "url": "https://drive.google.com/file/d/1VJ5GTzn-Ref25OWcXEKgq_twbn2xi-qR/view?usp=sharing"
+    },
+    {
+      "title": "Embedded System Design",
+      "org": "NPTEL",
+      "period": "2025",
+      "note": "Certification"
+    },
+    {
+      "title": "Data Structures and Algorithms",
+      "org": "FinestCoder",
+      "period": "2024",
+      "note": "Certification"
+    },
+    {
+      "title": "C, C++ and Python programming",
+      "org": "CSC",
+      "period": "2022",
+      "note": "Certification"
+    }
+  ]
+}

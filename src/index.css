@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-text font-display font-light antialiased;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  section {
+    scroll-margin-top: 84px;
+  }
+
+  p {
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid #f5a524;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .chrome {
+    background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .rule {
+    @apply border-t border-line;
+  }
+
+  /* Measurement-style key/value row used for technical metadata. */
+  .spec {
+    @apply font-mono text-[11px] tracking-[0.06em] text-muted;
+  }
+
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .heading {
+    @apply font-display text-3xl font-normal leading-[1.05] sm:text-5xl;
+  }
+}
+
+/* Single page-load motion: the step-pulse trace draws itself once. */
+.pulse-trace {
+  stroke-dasharray: 2400;
+  stroke-dashoffset: 2400;
+  animation: trace 2.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s forwards;
+}
+
+@keyframes trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .pulse-trace {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

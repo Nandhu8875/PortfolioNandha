@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">STM32 pin mapping</title>
+  <desc id="desc">A block diagram showing STM32 GPIO, ADC, UART, and power connections for the driver monitoring system.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <style>
+      .label { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #e5e7eb; }
+      .small { font: 600 16px 'Segoe UI', Arial, sans-serif; fill: #cbd5e1; }
+      .tiny { font: 600 13px 'Segoe UI', Arial, sans-serif; fill: #dbeafe; }
+      .pin { fill: #f59e0b; stroke: #fbbf24; stroke-width: 2; }
+      .wire { stroke: #38bdf8; stroke-width: 3; fill: none; }
+      .wire2 { stroke: #34d399; stroke-width: 3; fill: none; }
+      .box { fill: rgba(15, 118, 110, 0.22); stroke: #2dd4bf; stroke-width: 2; }
+      .box2 { fill: rgba(59, 130, 246, 0.18); stroke: #60a5fa; stroke-width: 2; }
+      .box3 { fill: rgba(245, 158, 11, 0.15); stroke: #fbbf24; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <text x="600" y="52" text-anchor="middle" class="label" style="font-size: 32px;">STM32 Driver Monitoring System</text>
+
+  <g>
+    <rect x="420" y="120" width="360" height="560" rx="26" fill="url(#chip)" stroke="#94a3b8" stroke-width="3"/>
+    <text x="600" y="170" text-anchor="middle" class="label" style="font-size: 28px;">STM32F103C8T6</text>
+
+    <g>
+      <rect x="500" y="210" width="200" height="70" rx="14" class="box"/>
+      <text x="600" y="250" text-anchor="middle" class="label">MQ-3 Alcohol Sensor</text>
+      <text x="600" y="276" text-anchor="middle" class="tiny">ADC1_IN1 / PA1</text>
+    </g>
+
+    <g>
+      <rect x="500" y="300" width="200" height="70" rx="14" class="box2"/>
+      <text x="600" y="340" text-anchor="middle" class="label">UART Link</text>
+      <text x="600" y="366" text-anchor="middle" class="tiny">TX: PA9  RX: PA10</text>
+    </g>
+
+    <g>
+      <rect x="500" y="390" width="200" height="70" rx="14" class="box3"/>
+      <text x="600" y="430" text-anchor="middle" class="label">Alert Output</text>
+      <text x="600" y="456" text-anchor="middle" class="tiny">Buzzer / LED / Relay</text>
+    </g>
+
+    <g>
+      <rect x="500" y="480" width="200" height="70" rx="14" class="box"/>
+      <text x="600" y="520" text-anchor="middle" class="label">Power &amp; Ground</text>
+      <text x="600" y="546" text-anchor="middle" class="tiny">3.3V • GND • VIN</text>
+    </g>
+
+    <g>
+      <circle cx="330" cy="245" r="18" class="pin"/>
+      <circle cx="330" cy="335" r="18" class="pin"/>
+      <circle cx="330" cy="425" r="18" class="pin"/>
+      <circle cx="870" cy="245" r="18" class="pin"/>
+      <circle cx="870" cy="335" r="18" class="pin"/>
+      <circle cx="870" cy="425" r="18" class="pin"/>
+      <circle cx="600" cy="690" r="18" class="pin"/>
+    </g>
+
+    <path d="M348 245 H500" class="wire"/>
+    <path d="M348 335 H500" class="wire2"/>
+    <path d="M348 425 H500" class="wire"/>
+    <path d="M700 245 H852" class="wire"/>
+    <path d="M700 335 H852" class="wire2"/>
+    <path d="M700 425 H852" class="wire"/>
+    <path d="M600 610 V672" class="wire2"/>
+
+    <text x="250" y="250" class="small">MQ-3 IN</text>
+    <text x="930" y="250" class="small" text-anchor="start">Host PC</text>
+    <text x="250" y="340" class="small">UART</text>
+    <text x="930" y="340" class="small" text-anchor="start">Console</text>
+    <text x="250" y="430" class="small">Alert</text>
+    <text x="930" y="430" class="small" text-anchor="start">Buzzer</text>
+    <text x="560" y="742" class="small">Power Rail</text>
+  </g>
+</svg>
