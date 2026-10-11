@@ -1,4 +1,5 @@
-import type { Project } from '../types/portfolio'
+import { useRef } from 'react'
+import type { Architecture, Project } from '../types/portfolio'
 
 function Gallery({ media, title }: { media: Project['media']; title: string }) {
   if (media.length === 0) {
@@ -41,8 +42,86 @@ function Gallery({ media, title }: { media: Project['media']; title: string }) {
   )
 }
 
+function ArchitecturePanel({ architecture }: { architecture: Architecture }) {
+  const dialogRef = useRef<HTMLDialogElement>(null)
+  const openRef = useRef<number>(0)
+  const [front, back] = architecture.diagrams
+
+  const show = (i: number) => {
+    openRef.current = i
+    const d = dialogRef.current
+    if (!d) return
+    const img = d.querySelector('img')
+    const cap = d.querySelector('p')
+    const g = architecture.diagrams[i]
+    if (img) {
+      img.src = g.src
+      img.alt = g.alt
+    }
+    if (cap) cap.textContent = g.title + ' — ' + g.tag
+    d.showModal()
+  }
+
+  return (
+    <div>
+      <p className="spec">System architecture</p>
+      <p className="mt-3 max-w-[44rem] leading-relaxed text-text/90">{architecture.intro}</p>
+
+      <div className="mt-8 grid items-start gap-6 lg:grid-cols-[1.15fr_1fr]">
+        {[front, back].map((g, i) => (
+          <figure key={g.src}>
+            <button
+              type="button"
+              onClick={() => show(i)}
+              aria-label={`Enlarge ${g.title} diagram`}
+              className="group block w-full cursor-zoom-in rounded-sm border border-line bg-[#F1EFE8] p-3 text-left transition-colors hover:border-signal"
+            >
+              <img
+                src={g.src}
+                alt={g.alt}
+                width={g.width}
+                height={g.height}
+                loading="lazy"
+                className="h-auto w-full"
+              />
+            </button>
+            <figcaption className="mt-3">
+              <span className="flex items-baseline gap-3">
+                <span className="font-normal">{g.title}</span>
+                <span className="spec">{g.tag}</span>
+              </span>
+              <span className="mt-1 block max-w-[34rem] text-sm leading-relaxed text-muted">
+                {g.caption}
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <dialog
+        ref={dialogRef}
+        onClick={(e) => e.target === dialogRef.current && dialogRef.current?.close()}
+        className="m-auto w-[min(92vw,64rem)] max-h-[92vh] overflow-auto rounded-sm border border-line bg-panel p-4 text-text backdrop:bg-black/80"
+      >
+        <div className="flex items-center justify-between gap-4">
+          <p className="spec" />
+          <button
+            type="button"
+            onClick={() => dialogRef.current?.close()}
+            className="border-b border-signal pb-0.5 text-sm text-signal"
+          >
+            Close
+          </button>
+        </div>
+        <img src="" alt="" className="mx-auto mt-3 h-auto max-h-[78vh] w-auto max-w-full rounded-sm bg-[#F1EFE8] p-4" />
+      </dialog>
+    </div>
+  )
+}
+
 function ProjectEntry({ project, index }: { project: Project; index: number }) {
   return (
+    <>
     <article className="rule grid gap-8 py-12 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
       <div className="lg:sticky lg:top-24 lg:self-start">
         <p className="spec flex gap-4">
@@ -86,6 +165,12 @@ function ProjectEntry({ project, index }: { project: Project; index: number }) {
 
       <Gallery media={project.media} title={project.title} />
     </article>
+    {project.architecture && (
+      <div className="pb-12">
+        <ArchitecturePanel architecture={project.architecture} />
+      </div>
+    )}
+    </>
   )
 }
 

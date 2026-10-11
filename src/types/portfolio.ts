@@ -35,6 +35,18 @@ export interface Role {
 
 export interface Media { src: string; caption: string }
 
+export interface Diagram {
+  src: string
+  title: string
+  tag: string
+  alt: string
+  caption: string
+  width: number
+  height: number
+}
+
+export interface Architecture { intro: string; diagrams: Diagram[] }
+
 export interface Project {
   id: string
   title: string
@@ -45,6 +57,7 @@ export interface Project {
   stack: string[]
   highlights: string[]
   media: Media[]
+  architecture?: Architecture
   link: string
   highlight: boolean
 }

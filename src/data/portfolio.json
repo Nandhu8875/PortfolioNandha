@@ -172,7 +172,30 @@
         }
       ],
       "link": "",
-      "highlight": true
+      "highlight": true,
+      "architecture": {
+        "intro": "Two boards, one job each. The touch board owns the operator and the recipes; the backend board owns motion. They only meet over a command link, so a slow screen can never delay a step pulse.",
+        "diagrams": [
+          {
+            "src": "./media/dipcoater-frontend-architecture.png",
+            "title": "Frontend board",
+            "tag": "ESP32-S3 · LVGL",
+            "alt": "Frontend architecture: operator uses LVGL screens, which feed app state and a command queue; storage on LittleFS, SD and NVS; WiFi manager and backend link reach the backend board over TCP 3333 or USB.",
+            "caption": "LVGL screens sit on top of app state and a command queue. Recipes live on SD, WiFi login in NVS, and the backend link finds the controller by mDNS.",
+            "width": 1360,
+            "height": 1060
+          },
+          {
+            "src": "./media/dipcoater-backend-architecture.svg",
+            "title": "Backend board",
+            "tag": "ESP32-S3 · FreeRTOS",
+            "alt": "Backend architecture: commands arrive over WiFi TCP or USB serial, pass one CSV parser and a command queue, then a cycle state machine and motion engine drive motor pins; limit switches stop motion.",
+            "caption": "Wi-Fi and USB commands go through one CSV parser and a FreeRTOS queue. The cycle state machine hands steps to a timer-driven motion engine, and limit switches stop it on interrupt.",
+            "width": 680,
+            "height": 610
+          }
+        ]
+      }
     },
     {
       "id": "gantry-motion",
