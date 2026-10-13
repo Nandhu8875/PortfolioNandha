@@ -55,7 +55,7 @@ export default function Footer({ profile }: { profile: Profile }) {
             download="NandhaGopal_EmbeddedSystem_Resume.pdf"
             className="rule pt-4 text-text hover:text-signal"
           >
-            Résumé (PDF)
+            Resume (PDF)
           </a>
         </div>
       </div>

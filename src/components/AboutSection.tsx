@@ -33,9 +33,11 @@ export default function AboutSection({
                 href={recommendation.url}
                 target="_blank"
                 rel="noreferrer"
-                className="spec mt-3 block text-muted/80 transition-colors hover:text-signal"
+                download="Nandhagopal_LoR.pdf"
+                className="spec mt-3 inline-flex items-center gap-1.5 text-muted transition-colors hover:text-signal"
               >
-                {recommendation.note}
+                <span>{recommendation.note}</span>
+                <span aria-hidden="true">↗</span>
               </a>
             ) : (
               <p className="spec mt-3 text-muted/80">{recommendation.note}</p>

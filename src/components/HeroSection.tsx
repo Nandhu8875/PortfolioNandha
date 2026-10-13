@@ -26,7 +26,7 @@ export default function HeroSection({ profile }: { profile: Profile }) {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href="#work"
-              className="rounded-full bg-signal px-5 py-2.5 text-sm text-ink transition-colors hover:bg-[#ffb943]"
+              className="inline-flex items-center rounded-full bg-signal px-5 py-2.5 text-sm font-medium text-ink transition-all hover:bg-[#ffb943]"
             >
               See the machines
             </a>
@@ -35,9 +35,19 @@ export default function HeroSection({ profile }: { profile: Profile }) {
               target="_blank"
               rel="noopener noreferrer"
               download="NandhaGopal_EmbeddedSystem_Resume.pdf"
-              className="rounded-full border border-line px-5 py-2.5 text-sm text-text transition-colors hover:border-muted"
+              className="group inline-flex items-center gap-2 rounded-full border border-line bg-panel/80 px-5 py-2.5 text-sm font-medium text-text transition-all hover:border-signal hover:text-signal hover:bg-panel"
             >
-              Download résumé
+              <svg
+                className="h-4 w-4 opacity-75 transition-transform group-hover:translate-y-0.5 group-hover:opacity-100"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Download Resume</span>
             </a>
           </div>
         </div>
