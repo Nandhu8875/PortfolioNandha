@@ -17,7 +17,7 @@
       "linkedin": "https://linkedin.com/in/",
       "email": "nandhagopalvm19@gmail.com",
       "phone": "+91 79048 57511",
-      "resume": "https://drive.google.com/file/d/1cThEcvDBZoTeyyEecoJnq0FQcfar2AG3/view?usp=sharing"
+      "resume": "./NandhaGopal_EmbeddedSystem_Resume.pdf"
     },
     "specStrip": [
       {
@@ -76,7 +76,7 @@
     {
       "name": "Machine side",
       "items": [
-        "Stepper drive (TB6600, NEMA17)",
+        "Stepper drive (TB6600, NEMA23 / NEMA17)",
         "Limit switches & homing",
         "Relay control",
         "Sensor interfacing",
@@ -98,7 +98,7 @@
       "name": "Learning next",
       "items": [
         "Bare-metal STM32 register-level drivers",
-        "CAN and Modbus RTU",
+        "CAN bus protocol",
         "Bootloaders and OTA update",
         "Unit testing firmware logic"
       ]

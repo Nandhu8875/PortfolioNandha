@@ -48,7 +48,13 @@ export default function Footer({ profile }: { profile: Profile }) {
           <a href={s.github} className="rule pt-4 text-text hover:text-signal">
             GitHub
           </a>
-          <a href={s.resume} className="rule pt-4 text-text hover:text-signal">
+          <a
+            href={s.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            download="NandhaGopal_EmbeddedSystem_Resume.pdf"
+            className="rule pt-4 text-text hover:text-signal"
+          >
             Résumé (PDF)
           </a>
         </div>

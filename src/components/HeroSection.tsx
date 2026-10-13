@@ -32,6 +32,9 @@ export default function HeroSection({ profile }: { profile: Profile }) {
             </a>
             <a
               href={profile.social.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              download="NandhaGopal_EmbeddedSystem_Resume.pdf"
               className="rounded-full border border-line px-5 py-2.5 text-sm text-text transition-colors hover:border-muted"
             >
               Download résumé
